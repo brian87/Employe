@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Builder;
@@ -24,6 +26,10 @@ public class Employee {
 	@GeneratedValue
 	@Column(name = "ID")
 	private Long id;
+
+	@OneToMany
+	@JoinColumn(name = "SUPERVISOR_ID")
+	private Employee supervisorId;
 
 	private String firstName;
 
